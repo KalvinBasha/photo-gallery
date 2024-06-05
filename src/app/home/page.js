@@ -1,7 +1,3 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import Image from "next/image";
-import Link from "next/link";
-
 export default function Home() {
   return (
     <section className="mt-60 p-10 ml-20">
