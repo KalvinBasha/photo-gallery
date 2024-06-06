@@ -12,11 +12,11 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
+        <body className="pt-40">
           <header>
             <nav
               id="navBar"
-              className="fixed top-0 left-0 right-0 flex items-center justify-between p-10 border-b border-gray-300 shadow-md z-50 bg-white mb-50"
+              className="fixed top-0 left-0 right-0 flex items-center justify-between p-10 border-b border-gray-300 shadow-md z-50 bg-white"
             >
               <h2 className="text-2xl font-bold">Picture Planet</h2>
               <div className="flex items-center space-x-12">
@@ -39,10 +39,10 @@ export default function RootLayout({ children }) {
                   Create
                 </Link>
                 <Link
-                  href="/about"
+                  href="/profile"
                   className="text-black hover:text-gray-700 transition-colors duration-300 font-semibold"
                 >
-                  About Us
+                  Profile
                 </Link>
                 <SignedOut>
                   <SignInButton mode="modal">
@@ -57,26 +57,7 @@ export default function RootLayout({ children }) {
               </div>
             </nav>
           </header>
-          <main className="mt-30 p-10 ml-20">{children}</main>
-          <footer className="bg-gray-100 text-gray-500 p-10 mt-10">
-            <div className="container mx-auto flex justify-between">
-              <div>
-                <h3 className="text-lg font-bold mb-2">Picture Planet</h3>
-                <p>© 2024 Picture Planet. All rights reserved.</p>
-              </div>
-              <div className="space-x-4">
-                <a href="#" className="hover:text-gray-400">
-                  About
-                </a>
-                <a href="#" className="hover:text-gray-400">
-                  Contact
-                </a>
-                <a href="#" className="hover:text-gray-400">
-                  Privacy Policy
-                </a>
-              </div>
-            </div>
-          </footer>
+          {children}
         </body>
       </html>
     </ClerkProvider>
