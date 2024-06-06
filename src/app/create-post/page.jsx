@@ -6,7 +6,7 @@ export default function CreatePost() {
   const [imageUrl, setImageUrl] = useState("");
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container p-4">
       <h1 className="text-2xl font-bold mb-4">Create a Post</h1>
       <form action={(formData) => handleCreatePost(formData)}>
         <label htmlFor="title" className="block mb-2">
