@@ -83,7 +83,8 @@ export default async function RootLayout({ children }) {
               {!hasUsername && <ProfileForm />}
             </SignedIn>
           </main>
-          <footer className="bg-gray-100 text-gray-500 p-10 mt-10">
+
+          <footer className="bg-gray-100 text-gray-500 p-10 mt-80">
             <div className="container mx-auto flex justify-between">
               <div>
                 <h3 className="text-lg font-bold mb-2">Picture Planet</h3>
