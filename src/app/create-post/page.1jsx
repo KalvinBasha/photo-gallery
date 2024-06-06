@@ -1,0 +1,12 @@
+import { auth } from "@clerk/nextjs/server";
+import CreatePost from "../components/CreatePost";
+
+export default function CreatePostPage() {
+  const { userId } = auth();
+  return (
+    <div>
+      hello
+      <CreatePost userId={userId} />
+    </div>
+  );
+}
