@@ -2,13 +2,31 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import ProfileForm from "./components/ProfileForm";
+import { auth } from "@clerk/nextjs/server";
+import { db } from "@vercel/postgres";
 
 export const metadata = {
   title: "Picture Planet",
   description: "Share any photo on the planet!",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  // Get the userId from auth() -- if null, the user is not signed in
+  const { userId } = auth(); // user_98sddfiusdfi7syf  or null
+
+  const users = await db.query(
+    `SELECT * FROM users WHERE clerk_id = '${userId}'`
+  );
+
+  // if the user is logged in AND they don't have an entry in the profiles table, add it
+  if (users.rowCount === 0 && userId !== null) {
+    // add them to our database
+    await db.query(`INSERT INTO users (clerk_id) VALUES ('${userId}')`);
+  }
+
+  // has username will be true if we have a username and (shockingly) false if we don't
+  const hasUsername = users.rows[0]?.username !== null ? true : false;
   return (
     <ClerkProvider>
       <html lang="en">
@@ -57,7 +75,14 @@ export default function RootLayout({ children }) {
               </div>
             </nav>
           </header>
-          {children}
+          <main>
+            <SignedOut>{children}</SignedOut>
+
+            <SignedIn>
+              {hasUsername && children}
+              {!hasUsername && <ProfileForm />}
+            </SignedIn>
+          </main>
           <footer className="bg-gray-100 text-gray-500 p-10 mt-10">
             <div className="container mx-auto flex justify-between">
               <div>
