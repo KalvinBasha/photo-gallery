@@ -58,26 +58,26 @@ export default function RootLayout({ children }) {
             </nav>
           </header>
           {children}
+          <footer className="bg-gray-100 text-gray-500 p-10 mt-10">
+            <div className="container mx-auto flex justify-between">
+              <div>
+                <h3 className="text-lg font-bold mb-2">Picture Planet</h3>
+                <p>© 2024 Picture Planet. All rights reserved.</p>
+              </div>
+              <div className="space-x-4">
+                <Link href="/about" className="hover:text-gray-400">
+                  About
+                </Link>
+                <Link href="/about" className="hover:text-gray-400">
+                  Contact
+                </Link>
+                <Link href="#" className="hover:text-gray-400">
+                  Privacy Policy
+                </Link>
+              </div>
+            </div>
+          </footer>
         </body>
-        <footer className="bg-gray-100 text-gray-500 p-10 mt-10">
-          <div className="container mx-auto flex justify-between">
-            <div>
-              <h3 className="text-lg font-bold mb-2">Picture Planet</h3>
-              <p>© 2024 Picture Planet. All rights reserved.</p>
-            </div>
-            <div className="space-x-4">
-              <Link href="/about" className="hover:text-gray-400">
-                About
-              </Link>
-              <Link href="/about" className="hover:text-gray-400">
-                Contact
-              </Link>
-              <Link href="#" className="hover:text-gray-400">
-                Privacy Policy
-              </Link>
-            </div>
-          </div>
-        </footer>
       </html>
     </ClerkProvider>
   );
