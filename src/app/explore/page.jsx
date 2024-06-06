@@ -1,7 +1,13 @@
 import { sql } from "@vercel/postgres";
 
 export default async function Explore() {
-  const { rows: posts } = await sql`SELECT * FROM posts ORDER BY id DESC`;
+  const { rows: posts } = await sql`SELECT
+  posts.title,
+  posts.description,
+  posts.image_url,
+  users.username
+FROM posts
+INNER JOIN users ON posts.user_id = users.clerk_id ORDER BY posts.id DESC`;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -22,7 +28,7 @@ export default async function Explore() {
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
               <p className="text-gray-700">{post.description}</p>
-              <p>By: {}</p>
+              <p>By :{post.username}</p>
             </div>
           </div>
         ))}

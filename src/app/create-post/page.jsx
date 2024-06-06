@@ -16,7 +16,7 @@ export default function CreatePost() {
             Title
           </label>
           <input
-            title="title"
+            name="title"
             id="title"
             placeholder="Add your title here"
             className="border p-2 mb-4 w-full"
