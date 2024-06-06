@@ -28,7 +28,7 @@ INNER JOIN users ON posts.user_id = users.clerk_id ORDER BY posts.id DESC`;
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
               <p className="text-gray-700">{post.description}</p>
-              <p>By :{post.username}</p>
+              <p>By: {post.username}</p>
             </div>
           </div>
         ))}
