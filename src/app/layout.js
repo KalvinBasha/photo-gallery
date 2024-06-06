@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
           <header>
             <nav
               id="navBar"
-              className="fixed top-0 left-0 right-0 flex items-center justify-between p-10 border-b border-gray-300 shadow-md z-50 bg-white"
+              className="fixed top-0 left-0 right-0 flex items-center justify-between p-10 border-b border-gray-300 shadow-md z-50 bg-white mb-50"
             >
               <h2 className="text-2xl font-bold">Picture Planet</h2>
               <div className="flex items-center space-x-12">
