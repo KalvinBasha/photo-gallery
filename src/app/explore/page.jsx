@@ -22,6 +22,7 @@ export default async function Explore() {
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
               <p className="text-gray-700">{post.description}</p>
+              <p>By: {}</p>
             </div>
           </div>
         ))}
